@@ -31,6 +31,10 @@ Get ExpressJS module from
 https://enable-cors.org/server_expressjs.html
 */
 
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/users', users);
 
 //Set Static Folder
