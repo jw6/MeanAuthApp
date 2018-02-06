@@ -15,6 +15,7 @@ import { FlashMessageModule } from 'angular-flash-message';
 
 import { ValidateService } from './services/validate.service';
 import { FlashMessage } from 'angular-flash-message/dist/flash-message';
+import { AuthService } from './services/auth.service';
 const routes : Routes = [
   {path:'', component: HomeComponent},
   {path:'register', component: RegisterComponent },
@@ -39,7 +40,7 @@ const routes : Routes = [
     HttpModule,
     [RouterModule.forRoot(routes, {useHash: true})],
   ],
-  providers: [ValidateService],
+  providers: [ValidateService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
