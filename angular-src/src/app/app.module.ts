@@ -11,7 +11,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { FlashMessageModule } from 'angular-flash-message';
 
+import { ValidateService } from './services/validate.service';
+import { FlashMessage } from 'angular-flash-message/dist/flash-message';
 const routes : Routes = [
   {path:'', component: HomeComponent},
   {path:'register', component: RegisterComponent },
@@ -32,9 +35,11 @@ const routes : Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    FlashMessageModule,
+    HttpModule,
     [RouterModule.forRoot(routes, {useHash: true})],
   ],
-  providers: [],
+  providers: [ValidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
