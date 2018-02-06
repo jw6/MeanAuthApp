@@ -2,10 +2,8 @@
 
 MEAN Auth App is application that authenticate login user by applying SALT and HASH  password w/ crypto
 [*This is my first MEAN app and using Angular 5 instead of Angular
-I followed a Youtube Tutorial*](https://www.youtube.com/user/TechGuyWeb
-/)
-by [Brad Travesy](https://www.traversymedia.com/
-/).
+I followed a Youtube Tutorial, click here to check it out*](https://www.youtube.com/user/TechGuyWeb)
+by [Brad Travesy](https://www.traversymedia.com/).
 
 ## Getting started
 
@@ -42,4 +40,4 @@ Open browser and check (http://localhost:4200/)
 The MIT License (MIT)
 =====================
 
-Copyright © `<2009>` `<Jay Wang>`
+Copyright © `<2018>` `<Jay Wang>`
