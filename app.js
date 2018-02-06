@@ -1,10 +1,10 @@
-const express = require('express');
-const path = require('path');
+const express    = require('express');
+const path       = require('path');
 const bodyParser = require('body-parser');
-const cors = require('cors');
-const passport = require('passport');
-const mongoose = require('mongoose');
-const config = require('./config/database');
+const cors       = require('cors');
+const passport   = require('passport');
+const mongoose   = require('mongoose');
+const config     = require('./config/database');
 
 //Connect to databse
 mongoose.connect(config.database);
@@ -13,11 +13,11 @@ mongoose.connection.on('error', (err) => {
   console.log('database error: ' + config.database);
 });
 
-const app = express();
+const app   = express();
 
 const users = require('./routes/users')
 
-const port = 3000;
+const port  = 3000;
 
 app.use(cors());
 
@@ -41,7 +41,6 @@ app.use('/users', users);
 
 //Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 //Index routes
 app.get('/', (req, res) => {
