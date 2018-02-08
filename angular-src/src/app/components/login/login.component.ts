@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { FlashMessage } from 'angular-flash-message';
+import { ValidateService } from '../../services/validate.service';
+import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +12,59 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router         : Router,
+    private flashMessage   : FlashMessage,
+    private authService    : AuthService,
+    private validateService: ValidateService,
+    private loginService   : LoginService
+  ) { }
 
+  username: String;
+  password: String;
+  
   ngOnInit() {
+  }
+
+  onLogin() {
+    console.log(this.username)
+  }
+
+  onLoginSubmit() {
+    console.log(this.username);
+    const user = {
+      username: this.username,
+      password: this.password
+    }
+
+   // Required Fields
+
+  //  this.authService.authenticateUser(user).subscribe(data => {
+  //    console.log(data);
+  //   //  if(data.success) {
+  //   //   this.authService.storeUserData();
+  //   //  } else {
+  //   //   this.flashMessage.danger(data.msg,{timeout: 6000});
+  //   //       this.router.navigate(['login']);
+  //   //  }
+  //  })
+
+    // // Login
+    this.loginService.loginUser(user).subscribe(data => {
+      if(!this.validateService.validateLogin(user)){
+        console.log("works empty");
+        this.flashMessage.danger("Please fill in all fields", {timeout: 6000});
+        this.router.navigate(['login']);
+      } else if(data.success && data.user != undefined) {
+        console.log(data);
+        this.authService.storeUserData(data.token, data.user);
+        this.flashMessage.success("You are now logged in", {timeout: 6000});
+        this.router.navigate(['dashboard']);
+      } else {
+        this.flashMessage.danger(data.msg, {timeout: 6000});
+        this.router.navigate(['login']);
+      }
+    });
   }
 
 }
