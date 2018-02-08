@@ -20,6 +20,9 @@
     <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
       <a class="nav-link" routerLink="/register">Register</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a>
+    </li>
 <!--     <li class="nav-item" [routerLinkActive]="['active']">
        <a class="nav-link" id="logoutButton" routerLink="/login" routerLinkActive="active" (click)="logout()">Logout</a>
     </li> -->
