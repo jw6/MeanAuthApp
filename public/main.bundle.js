@@ -342,7 +342,6 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.onLoginSubmit = function () {
         var _this = this;
-        console.log(this.username);
         var user = {
             username: this.username,
             password: this.password
@@ -724,7 +723,6 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        console.log(user);
         return this.http.post('users/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
