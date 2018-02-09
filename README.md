@@ -2,7 +2,11 @@
 
 MEAN Auth App is application that authenticate login user by applying SALT and HASH  password w/ crypto
 This is my first MEAN app and I use Angular 5 instead of Angular
+```
+App Demo: (https://authapp-test.herokuapp.com)
+```
 [*I followed a Youtube Tutorial*](https://www.youtube.com/user/TechGuyWeb)
+
 by [Brad Travesy](https://www.traversymedia.com/).
 
 ## Getting started
