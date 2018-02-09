@@ -16,7 +16,6 @@ import { FlashMessageModule } from 'angular-flash-message';
 import { ValidateService } from './services/validate.service';
 import { FlashMessage } from 'angular-flash-message/dist/flash-message';
 import { AuthService } from './services/auth.service';
-import { LoginService } from './services/login.service';
 
 import { AuthGuard } from './guards/auth.guard';
 const routes : Routes = [
@@ -43,7 +42,7 @@ const routes : Routes = [
     HttpModule,
     [RouterModule.forRoot(routes, {useHash: true})],
   ],
-  providers: [ValidateService, AuthService, LoginService, AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

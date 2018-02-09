@@ -3,7 +3,6 @@ import { AuthService } from '../../services/auth.service';
 import { FlashMessage } from 'angular-flash-message';
 import { ValidateService } from '../../services/validate.service';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +15,7 @@ export class LoginComponent implements OnInit {
     private router         : Router,
     private flashMessage   : FlashMessage,
     private authService    : AuthService,
-    private validateService: ValidateService,
-    private loginService   : LoginService
+    private validateService: ValidateService
   ) { }
 
   username: String;
@@ -38,7 +36,7 @@ export class LoginComponent implements OnInit {
     }
 
     // // Login
-    this.loginService.loginUser(user).subscribe(data => {
+    this.authService.authenticateUser(user).subscribe(data => {
       if(!this.validateService.validateLogin(user)){
         this.flashMessage.danger("Please fill in all fields", {timeout: 6000});
         this.router.navigate(['login']);
