@@ -18,12 +18,13 @@ import { FlashMessage } from 'angular-flash-message/dist/flash-message';
 import { AuthService } from './services/auth.service';
 import { LoginService } from './services/login.service';
 
+import { AuthGuard } from './guards/auth.guard';
 const routes : Routes = [
   {path:'', component: HomeComponent},
   {path:'register', component: RegisterComponent },
-  {path:'dashboard', component: DashboardComponent},
+  {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path:'login', component: LoginComponent},
-  {path:'profile', component: ProfileComponent}
+  {path:'profile', component: ProfileComponent,canActivate:[AuthGuard]}
 ]
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ const routes : Routes = [
     HttpModule,
     [RouterModule.forRoot(routes, {useHash: true})],
   ],
-  providers: [ValidateService, AuthService, LoginService],
+  providers: [ValidateService, AuthService, LoginService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
