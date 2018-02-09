@@ -47,6 +47,12 @@ app.get('/', (req, res) => {
   res.send('Invalid Endpoint');
 });
 
+// Added this to handle undefined routes
+app.get('*', (req, res) => {
+  // res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.redirect('/');
+});
+
 //Start server
 app.listen(port, () => {
   console.log('Server started on port ' + port);
