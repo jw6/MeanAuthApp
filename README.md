@@ -10,7 +10,7 @@ by [Brad Travesy](https://www.traversymedia.com/).
 
 ## Getting started
 
-To get started with the app, clone the repo, in app root directory
+To get started with the app, clone the web-local branch of repo, in app root directory
 
 ```
 $ npm install
